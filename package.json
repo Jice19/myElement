@@ -1,0 +1,25 @@
+{
+  "name": "test-ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite examples",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs:dev": "vitepress dev docs", 
+    "docs:build": "vitepress build docs", 
+    "docs:preview": "vitepress preview docs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@test-ui/components": "workspace:^",
+    "@test-ui/examples": "workspace:^"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.1.2",
+    "vite": "^5.3.5",
+    "vitepress": "^1.3.2"
+  }
+}

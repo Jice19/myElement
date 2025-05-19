@@ -1,0 +1,45 @@
+# 依赖项目录
+node_modules
+dist
+
+# 构建产物相关
+*.log
+*.map
+*.gz
+
+# IDE 相关
+.idea
+.vscode
+*.suo
+*.user
+*.ipch
+*.sdf
+*.ncb
+*.sln
+*.swp
+*.swo
+.DS_Store
+
+# 临时文件
+*.tmp
+*.temp
+*.bak
+*.~
+*.cache
+
+# 本地配置文件
+.env
+.env.*
+
+# 打包工具相关
+yarn.lock
+pnpm-lock.yaml
+npm-debug.log
+yarn-error.log
+
+# 测试相关
+__tests__
+coverage
+
+# 示例目录下不需要提交的内容（如果有）
+examples/node_modules
