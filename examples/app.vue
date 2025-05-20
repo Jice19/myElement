@@ -23,17 +23,26 @@
         <my-button type="info" plain>info</my-button>
         <my-button type="warning" plain>success</my-button>
         <my-button type="danger" plain>danger</my-button>
-
       </li>
     </ul>
 
-    <h1>输入框组件展示</h1>
-    
+    <h1>Switch组件展示</h1>
+    <ul>
+      <li>点击获取组件状态(控制台)：
+        <my-Switch v-model="isOpen" @change="handleChange" />
+      </li>
+    </ul>
   </div>
 </template>
 
 <script setup>
+import { ref } from "vue";
 
+const isOpen = ref(true);
+const handleChange = (value) => {
+  // 触发事件
+  console.log("Switch状态:", value);
+};
 </script>
 
 <style scoped>
