@@ -14,8 +14,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@highlightjs/vue-plugin": "^2.1.0",
     "@test-ui/components": "workspace:^",
-    "@test-ui/examples": "workspace:^"
+    "@test-ui/examples": "workspace:^",
+    "highlight.js": "^11.11.1"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.1.2",
