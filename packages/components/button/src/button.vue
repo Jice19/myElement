@@ -30,7 +30,7 @@ export default {
     circle: Boolean,
     icon: String,
     disabled: Boolean,
-    plain: Boolean // 新增属性
+    plain: Boolean 
   },
   computed: {
     buttonClasses() {
@@ -40,7 +40,7 @@ export default {
         `my-button--${this.size}`,
         { 'is-round': this.round },
         { 'is-circle': this.circle },
-        { 'is-plain': this.plain } // 新增类名
+        { 'is-plain': this.plain }
       ];
     }
   }
@@ -106,7 +106,7 @@ export default {
   cursor: not-allowed;
   opacity: 0.6;
 }
-.is-plain { /* 新增样式 */
+.is-plain { 
   background-color: transparent;
   color: #333;
   border: 1px solid #dcdcdc;

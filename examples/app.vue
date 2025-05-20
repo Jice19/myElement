@@ -43,11 +43,13 @@
       </ul>
 
       <h1>Message全局提示组件展示</h1>
-
+        <my-button type="success"  @click="handleMessage">success</my-button>
+        <my-button type="danger"  @click="handleMessageError">danger</my-button>
     </div>
 </template>
 <script setup>
 import { ref } from "vue";
+import { TMessage } from "@test-ui/components";
 
 // switch开始
 const isOpen = ref(true);
@@ -56,6 +58,23 @@ const handleChange = (value) => {
   console.log("Switch状态:", value);
 };
 // switch结束
+
+
+// message开始
+const handleMessage = () => {
+  TMessage({
+    type: "success",
+    message: "操作成功",
+  });
+};
+
+const handleMessageError = () => {
+  TMessage({
+    type: "error",
+    message: "操作失败",
+  });
+};
+// message结束
 </script>
 
 <style scoped>

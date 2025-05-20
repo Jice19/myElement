@@ -1,11 +1,13 @@
 import * as components from "./components";
 
-// components 是一个对象，包含了所有的组件
-// 这里的 install 方法是 Vue 的插件安装方法
+const FUNCTION_COMP = ["TMessage"];
+
 export default {
   install(app) {
     Object.entries(components).forEach(([key, value]) => {
-      app.component(key, value);
+      if (!FUNCTION_COMP.includes(key)) app.component(key, value);
     });
   },
 };
+
+export const TMessage = components.TMessage;
