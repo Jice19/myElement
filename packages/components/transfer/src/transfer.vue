@@ -56,7 +56,6 @@ const setCheckedData = (checked,leftOrRight,item) =>{
         <div>
           <div 
             v-for="item of leftListData"
-            :id="'_checkbox_' + item.id"
             :key="item.id"
             :class="['list-item',item.disabled ? 'disabled' : '']"
           >
@@ -74,16 +73,30 @@ const setCheckedData = (checked,leftOrRight,item) =>{
       <div class="box button-group">
         <button
           :disabled="tranferButtonDisabled.left "
+          @click="removeRightListData(checkedData.right)"
         >&lt;</button>
         <button
           :disabled="tranferButtonDisabled.right "
+          @click="addRightListData(checkedData.left)"
         >&gt;</button>
       </div>
 
       <div class="box right-list">
         <h1 class="list-title">{{ rightTitle }}</h1>
         <div>
-
+          <div 
+            v-for="item of rightListData"
+            :key="item.id"
+            :class="['list-item',item.disabled ? 'disabled' : '']"
+          >
+          <input 
+            type="checkbox"
+            :disabled="item.disabled"
+            :id="'_checkbox_' + item.id"
+            @click="setCheckedData($event.target.checked,  'right' ,item )"
+            >
+            <label :for="'_checkbox_' + item.id">{{ item.phone_name }}</label>
+        </div>
         </div>
       </div>
     </div>
