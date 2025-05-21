@@ -1,15 +1,37 @@
 <script setup>
 // 在这里编写组件逻辑
 import PropsDefination from './transfer.js'
-import {useTargetIndex ,useComputedData , useRightListData} from './hooks.js'
+import {useTargetIndex ,
+        useComputedData , 
+        useRightListData, 
+        useCheckedData,
+} from './hooks.js'
 const props = defineProps(PropsDefination)
 // 成功获取数据
 // console.log(props.data, props.rigehtTitle)
 const options = props.data.map(({title}) => title)
 const [targetIndex, setTargetIndex] = useTargetIndex(0)
 
-const [rightListData, addRightListData,removeRightListData] = useRightListData([])
-const {leftTitle, leftListData} = useComputedData(props.data,targetIndex, rightListData)
+const [checkedData,
+        addCheckedData,
+        removeCheckedData
+      ] = useCheckedData([])
+
+const [rightListData,
+        addRightListData,
+        removeRightListData
+      ] = useRightListData([],checkedData)
+
+const {leftTitle, 
+        leftListData,
+        tranferButtonDisabled
+      } = useComputedData(props.data,targetIndex, rightListData,checkedData)
+
+const setCheckedData = (checked,leftOrRight,item) =>{
+  checked
+   ? addCheckedData(leftOrRight,item) 
+  : removeCheckedData(leftOrRight,item.id)
+}
 
 </script>
 
@@ -40,15 +62,22 @@ const {leftTitle, leftListData} = useComputedData(props.data,targetIndex, rightL
           >
           <input 
             type="checkbox"
-            :disabled="item.disabled">
+            :disabled="item.disabled"
+            :id="'_checkbox_' + item.id"
+            @click="setCheckedData($event.target.checked,  'left' ,item )"
+            >
             <label :for="'_checkbox_' + item.id">{{ item.phone_name }}</label>
         </div>
         </div>
       </div>
 
       <div class="box button-group">
-        <button>&lt;</button>
-        <button>&gt;</button>
+        <button
+          :disabled="tranferButtonDisabled.left "
+        >&lt;</button>
+        <button
+          :disabled="tranferButtonDisabled.right "
+        >&gt;</button>
       </div>
 
       <div class="box right-list">
@@ -123,6 +152,7 @@ const {leftTitle, leftListData} = useComputedData(props.data,targetIndex, rightL
       &.disabled{
         background-color: rgb(245, 5, 5);
         cursor: not-allowed;
+        opacity: .7;
       }
     }
 
