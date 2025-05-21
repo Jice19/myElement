@@ -94,7 +94,7 @@ const handleMessageError = () => {
 // 声明数据
 const data = [
   {
-    titile:'华为',
+    title:'华为',
     data:[
       {
         id:1,
