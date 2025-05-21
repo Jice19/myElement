@@ -1,5 +1,7 @@
 <script setup>
 // 在这里编写组件逻辑
+import selector from './components/selector.vue'
+import listTitle from './components/listTitle.vue'
 import PropsDefination from './transfer.js'
 import {useTargetIndex ,
         useComputedData , 
@@ -38,21 +40,17 @@ const setCheckedData = (checked,leftOrRight,item) =>{
 <template>
   <div>
     <div>
-      <select
-        @change="setTargetIndex($event.target.value)"
-        class="select"
-      >
-        <option 
-          v-for="(title,index) of options"
-          :key="index"
-          :value="index"
-        > {{ title }}</option>
-      </select>
+      <selector
+        :data="options"
+        @selectChange="setTargetIndex"
+      ></selector>
     </div>
 
     <div class="transfer">
       <div class="box left-list">
-        <h1 class="list-title">{{ leftTitle }}</h1>
+        <listTitle
+          :title="leftTitle"
+        ></listTitle>
         <div>
           <div 
             v-for="item of leftListData"
@@ -82,7 +80,9 @@ const setCheckedData = (checked,leftOrRight,item) =>{
       </div>
 
       <div class="box right-list">
-        <h1 class="list-title">{{ rightTitle }}</h1>
+        <listTitle
+          :title="rightTitle"
+        ></listTitle>
         <div>
           <div 
             v-for="item of rightListData"
@@ -138,19 +138,6 @@ const setCheckedData = (checked,leftOrRight,item) =>{
     width: 120px;
     height: 100%;
     
-    .list-title{
-      height: 40px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-weight: normal;
-      margin: 0;
-      color:#666;
-      border-bottom: 1px solid #ccc;
-      background-color: #efefef;
-      font-size: 14px;
-    }
-
     .list-item{
       display: flex;
       align-items: center;
