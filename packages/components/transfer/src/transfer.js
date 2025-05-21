@@ -3,7 +3,7 @@ export default {
     type: Array,
     default: () => []
   },
-  rigehtTitle:{
+  rightTitle:{
     type: String,
     default: "已选择"
   }

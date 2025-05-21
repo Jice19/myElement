@@ -55,7 +55,7 @@
       <h1>Transfer组件展示</h1>
       <TTransfer
         :data="data"
-        right-title="已选择机型"
+        rightTitle="已选择机型"
       ></TTransfer>
     </div>
 </template>
@@ -103,27 +103,27 @@ const data = [
       },
       {
         id:2,
-        phone_name:'Mate 50 Pro',
+        phone_name:'Mate 60',
         disabled:false
       },
       {
         id:3,
-        phone_name:'Mate 50 RS',
+        phone_name:'Mate 70',
         disabled:true
       },
       {
         id:4,
-        phone_name:'Mate 50E',
+        phone_name:'Mate 80',
         disabled:false
       },
       {
         id:5,
-        phone_name:'Mate 50E Pro',
+        phone_name:'Mate 90',
         disabled:false
       },
       {
         id:6,
-        phone_name:'Mate 50E RS',
+        phone_name:'Mate 100',
         disabled:true
       }
     ]
@@ -136,7 +136,7 @@ const data = [
         disabled:false
       },{
         id:8, 
-        phone_name:'小米 13 Pro',
+        phone_name:'小米 14',
         disabled:false
       },
       {
@@ -155,12 +155,21 @@ const data = [
         disabled:false
       },{
         id:11,
-        phone_name:'iPhone 14 Pro', 
+        phone_name:'iPhone 15', 
         disabled:false
       },{
         id:12,
-        phone_name:'iPhone 14 Pro Max',
+        phone_name:'iPhone 16',
         disabled:true
+      },{
+        id:13,
+        phone_name:'iPhone 17',
+        disabled:false
+      },
+      {
+        id:14,
+        phone_name:'iPhone 18',
+        disabled:false
       }
     ]
   }
