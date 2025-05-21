@@ -1,54 +1,46 @@
 <template>
   <div class="t-message-overlay" v-if="visible" @click.self="close">
-    <div class="t-message-container" :class="`t-message-${position}`">
-      <transition name="message-fade">
+    <div class="t-message-container">
         <div 
-          :class="['t-message', { 'is-closable': showClose, 'with-icon': type }]"
+          :class="['t-message', `t-message-${context.type}`]"
           ref="messageRef"
         >
-          <i v-if="type" :class="`t-message__icon el-icon-${typeIcon}`"></i>
           <div class="t-message__content">
-            <span>{{ message }}</span>
+            <span>{{ context.message }}</span>
           </div>
-          <button v-if="showClose" class="t-message__close" @click="close">
-            <i class="el-icon-close"></i>
-          </button>
         </div>
-      </transition>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, watch, computed } from 'vue';
+import { ref, onMounted, onUnmounted, toRefs } from 'vue';
 import { Props } from './message.js';
 
 const props = defineProps(Props);
 const emits = defineEmits(['close']);
-
 const visible = ref(true);
 const messageRef = ref(null);
 let timer = null;
-
-const typeIcon = computed(() => {
-  const icons = {
-    success: 'success',
-    info: 'info',
-    warning: 'warning',
-    error: 'error'
-  };
-  return icons[props.type] || 'info';
-});
-
-const close = () => {
-  visible.value = false;
-  emits('close');
-};
+const context = ref({
+  type: '',
+  message: '',
+  duration: 3000,
+  onClose: () => {}
+})
 
 onMounted(() => {
+  const { type, message, onClose } = toRefs(props);
+  context.value = {
+    type: type.value,
+    message: message.value,
+    duration: props.duration,
+    onClose: onClose.value
+  };
+  // console.log(props)
   if (props.duration > 0) {
     timer = setTimeout(() => {
-      close();
+      context.value.onClose();
     }, props.duration);
   }
 });
@@ -82,14 +74,6 @@ onUnmounted(() => {
   box-sizing: border-box;
 }
 
-.t-message-container.t-message-top {
-  top: 20px;
-}
-
-.t-message-container.t-message-bottom {
-  bottom: 20px;
-}
-
 .t-message {
   display: flex;
   align-items: center;
@@ -105,16 +89,23 @@ onUnmounted(() => {
   position: relative;
   border-width: 1px;
   border-style: solid;
-}
 
-.t-message.with-icon {
-  padding-left: 40px;
-}
-
-.t-message__icon {
-  position: absolute;
-  left: 16px;
-  font-size: 16px;
+  &.t-message-success {
+    background-color: #67c23a;
+    opacity: .5;
+  }
+  &.t-message-info {
+    background-color: #909399;
+    opacity: .5;
+  }
+  &.t-message-warning {
+    background-color: #e6a23c;
+    opacity: .5;
+  }
+  &.t-message-error {
+    background-color: #f56c6c;
+    opacity: .5;
+  }
 }
 
 .t-message__content {
@@ -126,50 +117,6 @@ onUnmounted(() => {
   font-size: 14px;
   line-height: 1.5;
   word-break: break-all;
-}
-
-.t-message__close {
-  background: transparent;
-  border: none;
-  outline: none;
-  padding: 0;
-  margin-left: 16px;
-  cursor: pointer;
-  color: #909399;
-  transition: color 0.2s;
-  font-size: 12px;
-}
-
-.t-message__close:hover {
-  color: #606266;
-}
-
-.t-message.is-closable {
-  padding-right: 36px;
-}
-
-.t-message--success {
-  background-color: #f0f9eb;
-  border-color: #e1f3d8;
-  color: #67c23a;
-}
-
-.t-message--info {
-  background-color: #f4f4f5;
-  border-color: #e9e9eb;
-  color: #909399;
-}
-
-.t-message--warning {
-  background-color: #fdf6ec;
-  border-color: #faecd8;
-  color: #e6a23c;
-}
-
-.t-message--error {
-  background-color: #fef0f0;
-  border-color: #fde2e2;
-  color: #f56c6c;
 }
 
 .message-fade-enter-from,

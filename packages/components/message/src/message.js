@@ -1,22 +1,21 @@
 export const Props = {
-  type: {
+  type: {   /** 非必须传入 **/
     type: String,
     default: 'info',
     validator(value) {
-      return ['success', 'info', 'warning', 'error'].includes(value);
-    }
+      return ['success', 'info', 'warning', 'error', "danger"].includes(value);
+    },
+    required: false
   },
-  message: {
+  message: {   /** 非必须传入 **/
     type: String,
-    default: ''
+    default: '',
+    required: false
   },
-  showClose: {
-    type: Boolean,
-    default: false
-  },
-  duration: {
+  duration: {  /** 非必须传入 **/
     type: Number,
-    default: 3000
+    default: 3000,
+    required: false
   },
   position: {
     type: String,
@@ -24,5 +23,9 @@ export const Props = {
     validator(value) {
       return ['top', 'bottom'].includes(value);
     }
+  },
+  onClose: {  /** 必须传入 **/
+    type: Function,
+    required: true
   }
 };

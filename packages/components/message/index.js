@@ -14,14 +14,16 @@ const resetCloseTimer = (duration) => {
 
 // 关闭当前消息
 const closeCurrentMessage = () => {
+  // console.log("~~~~~~~~~")
   if (!currentMessage) return;
   
   // 添加关闭动画
   currentMessage.container.style.opacity = '0';
   currentMessage.container.style.transform = 'translateY(-10px)';
-  
+  // console.log(currentMessage.container.parentNode)
+  // console.log(currentMessage)
   setTimeout(() => {
-    if (currentMessage.container && currentMessage.container.parentNode) {
+    if (currentMessage?.container && currentMessage?.container.parentNode) {
       currentMessage.container.parentNode.removeChild(currentMessage.container);
     }
     currentMessage = null;
@@ -93,7 +95,7 @@ const debouncedCreateMessage = (() => {
     clearTimeout(timer);
     timer = setTimeout(() => {
       createOrUpdateMessage(config);
-    }, 50); // 防抖延迟，可根据需要调整
+    }, 50); // 防抖延迟
   };
 })();
 
@@ -103,14 +105,13 @@ export const TMessage = (config = {}) => {
     type: 'info',
     message: '',
     duration: 3000,
-    showClose: true,
     ...config
   };
   
   debouncedCreateMessage(defaultConfig);
 };
 
-// 添加快捷方法
+// 总结写法
 ['success', 'info', 'warning', 'error'].forEach(type => {
   TMessage[type] = (message, options = {}) => {
     return TMessage({

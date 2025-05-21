@@ -43,8 +43,14 @@
       </ul>
 
       <h1>Message全局提示组件展示</h1>
-        <my-button type="success"  @click="handleMessage">success</my-button>
-        <my-button type="danger"  @click="handleMessageError">danger</my-button>
+      <ul>
+        <li>成功提示：
+          <my-button type="success"  @click="handleMessage">success</my-button>
+        </li>
+        <li>失败提示：
+          <my-button type="danger"  @click="handleMessageError">danger</my-button>
+        </li>
+      </ul>
     </div>
 </template>
 <script setup>
