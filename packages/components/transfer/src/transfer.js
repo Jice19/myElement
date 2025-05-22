@@ -1,7 +1,8 @@
 export default {
   data:{
     type: Array,
-    default: () => []
+    default: () => [],
+    id:Number
   },
   rightTitle:{
     type: String,

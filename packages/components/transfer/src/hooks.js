@@ -81,6 +81,19 @@ export function useCheckedData() {
   ]
 }
 
+export function useDragedItem() {
+  const dragedItem = ref(null);
+
+    // 进行切换
+  function setDragedItem(item) {
+    dragedItem.value = item;
+  }
+
+  return [
+    dragedItem,
+    setDragedItem
+  ]
+}
 
 export function useComputedData(data,targetIndex, rightListData,checkedData){
   const leftTitle = computed(() => data[targetIndex.value].title)
@@ -89,7 +102,7 @@ export function useComputedData(data,targetIndex, rightListData,checkedData){
     const {data: currentData} = data[targetIndex.value]
 
     return currentData.filter(item => {
-      if(!rightListData.value.find( ({id}) => id === item.id)){
+      if(!rightListData.value.find( ({ id }) => item.id === id )){
         return item
       }
     })
