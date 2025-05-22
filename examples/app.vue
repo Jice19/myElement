@@ -42,6 +42,23 @@
         </li>
       </ul>
 
+      <h1>Input组件展示</h1>
+      <ul>
+          <h3>基础输入框</h3>
+          <TInput v-model="message" placeholder="请输入内容" />
+          <h3>密码输入框</h3>
+          <TInput v-model="password" type="password" showPassword placeholder="请输入密码"  />
+          <h3>带清除功能的输入框</h3>
+          <TInput v-model="searchText"  clearable placeholder="搜索内容" />
+          <h3>文本域</h3>
+          <TInput v-model="description"  type="textarea"  rows="5" placeholder="请输入描述信息"  />
+          <h3>禁用状态</h3>
+          <TInput v-model="disabledText" disabled placeholder="禁用状态" />
+          <h3>数值输入框</h3>
+          <TInput v-model.number="age" type="number"  placeholder="请输入年龄"  />
+      </ul>
+
+
       <h1>Message全局提示组件展示</h1>
       <ul>
         <li>成功提示：
@@ -63,6 +80,7 @@
 import { ref } from "vue";
 import { TMessage } from "@test-ui/components";
 import TTransfer from "@test-ui/components/transfer";
+import TInput from "@test-ui/components/input";
 
 // switch开始
 const isOpen = ref(true);
@@ -174,8 +192,17 @@ const data = [
     ]
   }
 ]
-
 // TTransfer结束
+
+
+// Tinpurt开始
+const message = ref('');
+const password = ref('');
+const searchText = ref('');
+const description = ref('');
+const disabledText = ref('禁用内容');
+const age = ref(19);
+// Tinput结束
 </script>
 
 <style scoped>

@@ -3,3 +3,4 @@ export { TButton } from "./button";
 export {TSwitch} from './switch';
 export { TMessage } from "./message";
 export { TTransfer} from './transfer';
+export {TInput} from './input'

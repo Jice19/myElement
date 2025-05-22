@@ -50,6 +50,7 @@ export default {
 <style scoped>
 .my-button {
   padding: 10px 20px;
+  width: 100px;
   border: none;
   cursor: pointer;
   border-radius: 10px;
