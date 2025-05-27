@@ -10,6 +10,7 @@
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
     "dev:example": "pnpm run -r -F @test-ui/examples dev",
+    "dev:docs": "pnpm run -r -F test-ui-docs docs:dev",
     "build": "rollup -c"
   },
   "keywords": [],
