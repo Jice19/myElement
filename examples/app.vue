@@ -78,9 +78,9 @@
 </template>
 <script setup>
 import { ref } from "vue";
-import { TMessage } from "@test-ui/components";
-import TTransfer from "@test-ui/components/transfer";
-import TInput from "@test-ui/components/input";
+// import { TMessage } from "@test-ui/components";
+// import TTransfer from "@test-ui/components/transfer";
+// import TInput from "@test-ui/components/input";
 
 // switch开始
 const isOpen = ref(true);
