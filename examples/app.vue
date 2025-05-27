@@ -28,7 +28,7 @@
 
     <h1>Switch组件展示</h1>
       <ul>
-        <li>默认状态(触发事件控制台)：
+        <li>默认状态(触发事件控制台):
           <my-Switch v-model="isOpen" @change="handleChange" />
         </li>
         <li>自定义速度：

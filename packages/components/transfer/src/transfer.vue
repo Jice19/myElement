@@ -67,6 +67,7 @@ const setCheckedData = (checked,leftOrRight,item) =>{
             :data="leftListData"
             :leftOrRight="'left'"
             @checkboxClick="setCheckedData"
+            @dragItem="setDragedItem"
           ></listItem>
         </div>
       </div>
@@ -96,6 +97,7 @@ const setCheckedData = (checked,leftOrRight,item) =>{
             :data="rightListData"
             :leftOrRight="'right'"
             @checkboxClick="setCheckedData"
+            @dragItem="setDragedItem"
           ></listItem>
         </div>
       </div>
