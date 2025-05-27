@@ -92,17 +92,19 @@ const handleChange = (value) => {
 
 
 // message开始
+import { getCurrentInstance } from 'vue';
+
+const { appContext } = getCurrentInstance();
 const handleMessage = () => {
-  TMessage({
-    type: "success",
-    message: "操作成功",
+  appContext.config.globalProperties.$message({
+    type: 'success',
+    message: 'This is a success message!'
   });
 };
-
 const handleMessageError = () => {
-  TMessage({
-    type: "error",
-    message: "操作失败",
+  appContext.config.globalProperties.$message({
+    type: 'error',
+    message: 'This is a error message!'
   });
 };
 // message结束

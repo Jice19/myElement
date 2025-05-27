@@ -16,6 +16,3 @@ export default {
     app.config.globalProperties.$message = components.TMessage;
   }
 };
-
-// 按需导出单个组件
-export * from './components';
