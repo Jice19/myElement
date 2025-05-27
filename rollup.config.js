@@ -3,6 +3,7 @@ import postcss from 'rollup-plugin-postcss';
 import { terser } from 'rollup-plugin-terser';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
+import autoprefixer from 'autoprefixer';
 
 export default {
   input: 'packages/components/index.js',
@@ -35,13 +36,8 @@ export default {
     
     // 处理 CSS
     postcss({
-      extract: 'style.css', // 提取 CSS 到单独的文件
-      minimize: true,
-      modules: false, // 如果你使用 CSS Modules，设置为 true
-      use: {
-        less: true, // 确保处理 Less 文件
-      },
-      plugins: [] // 可以添加其他 PostCSS 插件
+      extract:'theme-chalk/style.css',
+      plugins:[ autoprefixer()]
     }),
     
     terser(),
