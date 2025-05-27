@@ -22,7 +22,10 @@ export default defineConfig({
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+      { icon: 'github', link: 'https://github.com/Jice19/' },
+      { icon: 'twitter', link: 'https://twitter.com/vite_js' },
+      { icon: 'discord', link: 'https://discord.com/invite/vite' },
+      { icon: "juejin", link: "https://juejin.cn/user/1678327571818995" },
     ]
   }
 })
