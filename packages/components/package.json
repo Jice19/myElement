@@ -1,6 +1,6 @@
 {
-  "name": "@test-ui/components",
-  "version": "1.0.0",
+  "name": "@jice19/jicecomponents",
+  "version": "1.0.3",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies":{
     "@test-ui/theme-chalk": "workspace:*"
   },

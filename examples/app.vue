@@ -24,7 +24,7 @@
         <my-button type="warning" plain>success</my-button>
         <my-button type="danger" plain>danger</my-button>
       </li>
-    </ul>
+    </ul>2
 
     <h1>Switch组件展示</h1>
       <ul>

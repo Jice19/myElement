@@ -1,5 +1,5 @@
 {
-  "name": "test-ui",
+  "name": "jiceelement",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,7 +9,7 @@
     "dev:example": "pnpm run -r -F @test-ui/examples dev",
     "dev:docs": "pnpm run -r -F test-ui-docs docs:dev",
     "docs:build": "pnpm run -r -F test-ui-docs docs:build",
-    "build": "rollup -c"
+    "build": "rollup -c && (if not exist .\\dist mkdir .\\dist) && copyfiles -f ./packages/components/package.json ./dist && copyfiles -f ./README.md ./dist"
   },
   "keywords": [],
   "author": "",
@@ -26,6 +26,7 @@
     "@vitejs/plugin-vue": "^5.1.2",
     "@vue/compiler-sfc": "^3.5.15",
     "autoprefixer": "^10.4.21",
+    "copyfiles": "^2.4.1",
     "less": "^4.3.0",
     "less-loader": "^12.3.0",
     "rollup": "^4.41.1",
