@@ -1,5 +1,9 @@
 # jice-element
 
+```bash
+npm i @jice19/jicecomponents
+```
+
 ```javascript
 //组件的使用main.js
 import { createApp } from 'vue'
@@ -247,5 +251,3 @@ const data = [
 1. **全局注册**：在 Vue 项目入口文件（如 `main.js`）中引入组件并注册为全局组件。
 2. **局部引用**：在单文件组件中按需引入（示例中已通过 `import` 语句引入）。
 3. **样式依赖**：需确保组件库 CSS 样式已正确引入项目。
-
-你可以直接将以上内容保存为 `.md` 文件，作为组件库的文档说明。如果需要补充其他信息（如组件事件、插槽等），可以随时告诉我！
